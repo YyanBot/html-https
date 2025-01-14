@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman 1</title>
+</head>
+<body>
+ 
+ <button onclick="kembali()">Kembali</button>
+ 
+ <script>
+  function kembali() {
+    window.location.href = 'berhasil.html'; // ganti dengan nama file tujuan
+  }
+ </script>
+ 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil</title>
+  <style>
+    .centang {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teks Neon</title>
+  <style>
+    .neon {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow:
+        0 0 10px #ff69b4,
+        0 0 20px #33ccff,
+        0 0 30px #ff99cc,
+        0 0 40px #66d9ef,
+        0 0 50px #99ffbb;
+      animation: warna-berubah 5s infinite;
+    }
+
+    @keyframes warna-berubah {
+      0% {
+        color: #ff69b4;
+      }
+      20% {
+        color: #33ccff;
+      }
+      40% {
+        color: #ff99cc;
+      }
+      60% {
+        color: #66d9ef;
+      }
+      80% {
+        color: #99ffbb;
+      }
+      100% {
+        color: #ff69b4;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="neon">PROFILE</h1>
+</body>
+</html>
+  
+  
+  <p>USER NAME: <span id="username-profil"></span><img class="centang" id="centang-biru" src="/img/centang.jpg" style="display:none;"></p>
+  <p>GMAIL: <span id="nama-profil"></span></p>
+
+  <script>
+    const username = localStorage.getItem('username');
+    const nama = localStorage.getItem('nama');
+    const kodeBenar = localStorage.getItem('kodeBenar');
+
+    document.getElementById('username-profil').innerHTML = username;
+    document.getElementById('nama-profil').innerHTML = nama;
+
+    // Tampilkan centang biru jika kode benar
+    if (kodeBenar === 'benar') {
+      document.getElementById('centang-biru').style.display = 'inline';
+    }
+  </script>
+</body>
+</html>
+<h1>_____________________</h1>
+<h4>AKUN TERNAMA DI VERIFIKASI OLEH DEVELOPER (YAN)</h4>
+
+<img src="/img/profile.jpg" alt="Profile">

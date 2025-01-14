@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berhasil Login</title>
+</head>
+<body>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Titik Tiga</title>
+  <style>
+    .titik-tiga {
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    
+    .titik-tiga::before,
+    .titik-tiga::after,
+    .titik-tiga {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="titik-tiga" onclick="gantiTema()"></div>
+  <script>
+    function gantiTema() {
+      const warnaRandom = getRandomColor();
+      document.body.style.backgroundColor = warnaRandom;
+    }
+    
+    function getRandomColor() {
+      const hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+      let warna = '#';
+      for (let i = 0; i < 6; i++) {
+        warna += hex[Math.floor(Math.random() * hex.length)];
+      }
+      return warna;
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot WhatsApp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background-color: #075E54;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+    
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .profile h2 {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .profile span {
+      font-size: 14px;
+      color: #ccc;
+      margin-left: 10px;
+    }
+    
+    .chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .pesan {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .input {
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      display: flex;
+    }
+    
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    button {
+      width: 20%;
+      padding: 10px;
+      background-color: #075E54;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Style pesan */
+    .pesan-anda {
+      background-color: #075E54;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      align-self: flex-end;
+    }
+    
+    .pesan-bot {
+      background-color: #f7f7f7;
+      color: #333;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="profile">
+        <img src="/img/profile.jpg" alt="Profile">
+        <h2>YanBots</h2>
+        <span>Online</span>
+      </div>
+    </header>
+    <div class="chat">
+      <div class="pesan" id="pesan"></div>
+      <div class="input">
+        <input type="text" id="kirim" placeholder="Tulis pesan...">
+        <button id="tombol-kirim">Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const pesan = document.getElementById('pesan');
+    const kirim = document.getElementById('kirim');
+    const tombolKirim = document.getElementById('tombol-kirim');
+
+    const commands = {
+    //CODE TERMUX
+      'hello': 'Halo!',
+      'info': 'Saya adalah chatbot sederhana.',
+      '/menutermux':'PILIH SALAH SATU <hr> 저°: /cd-instal-server <hr> 저°: /cd-instal-matrix <hr> 저°: /instal-ubuntu <hr> 저°: /instal-wps <hr> 저°: /dost-web-server <hr> 저°: /cyber-scan <hr> 저°: /backdoor-webshell <hr> 저°: /dos-tool <hr> 저°: /frame-work',
+      '/cd-instal-server': '<h4>INSTAL SERVER</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install python2 <hr> $ apt install python <hr> $ git clone https://github.com/verluchie/dost-attack <hr> $ cd dost-attack <hr> $ chmod 777 install.sh <hr> $ ./install.sh <hr> $ ./dost',
+      '/instal-ubuntu': '<h4>INSTAL UBUNTU</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install proot <hr> $ apt install wget <hr> $ git clone https://github.com/Neo-Oli/termux-ubuntu <hr> $ cd termux-ubuntu <hr> $ ls <hr> $ chmod +x * <hr> $ sh ubuntu +x * <hr> $ sh ubuntu.sh <hr> $ ./start.sh',
+      '/instal-wps': '<h4>INSTAL WPS</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install python2 <hr> $ apt install python <hr> $ pip2 install requests <hr> $ git clone https://github.com/nxxxu/AutoPixieWps <hr> $ cd AutoPixieWps <hr> $ chmod +x * <hr> $ pythons autopixie.py',
+      '/dost-web-server': '<h4>DOST WEB</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install python2 <hr> $ apt install python <hr> $ pip2 install requests <hr>  $ git clone https://github.com/blackvkng/viSQL.git <hr> $ cd viSQL <hr> $ pip2 install -r requirements.txt <hr> $ python2 viSQL.py --help',
+      '/cyber-scan': '<h4>CYBER SCAN</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install python2 <hr> $ apt install python <hr> $ git clone https://github.com/medbenali/CyberScan.git <hr> $ cd CyberScan <hr> $ python2 CyberScan.py -v <hr> $ CyberScan -h <hr> $ python2 CyberScan -s <hr> $ CyberScan -s',
+      '/backdoor-webshell': '<h4>BACKDOOR WEB</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install python2 <hr> $ git clone https://github.com/glides/Weevely <hr> $ chmod +x * <hr> $ python2 weevely.py <hr> $ python2 weevely.py',
+      '/dos-tool': '<h4>DOST TOOL</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git <hr> $ apt install clang <hr> $ git clone https://github.com/zanyarjamal/xerxes <hr> $ cd xerxes <hr> $  chmod +x * <hr> $ clang xerxes.c -o xerxes <hr> $ ./xerxes www.fakesite.com 80',
+      '/frame-work': '<h4>TERMUX API</h4> <hr> $ apt update && apt upgrade <hr> $ apt install git  <hr> $ apt install python <hr> $ git clone https://github.com/b3-v3r/Hunner <hr> $ cd Hunner <hr> $ chmod 777 hunner.py <hr> $ python hunner.py',
+      '/cd-instal-matrix': '<h4>ANIMASI MTX</h4> <hr> $ apt update && apt upgrade <hr> $ apt install cmatrix <hr> $ cmatrix',
+      
+      // AI
+      'p': 'utamakan assalamualaikum', 'y': 'singkat amat lagi pms ya?', 'bot': 'apaan jir', 'ini bot?': 'iya lah', 'hallo bot': 'hai bro', 'assalamualaikum': 'waalaikumsalam',
+      '/bantuan': 'Silakan ketik /hello atau /info.'
+    };
+
+    tombolKirim.addEventListener('click', function() {
+      const teks = kirim.value;
+      if (teks !== '') {
+        const elemPesan = document.createElement('div');
+        elemPesan.className = 'pesan-anda';
+        elemPesan.innerHTML = teks;
+        pesan.appendChild(elemPesan);
+        kirim.value = '';
+
+        const command = teks.toLowerCase();
+        const balasan = commands[command] || `Maaf, saya tidak mengerti "${teks}".`;
+        setTimeout(() => {
+          const elemBalasan = document.createElement('div');
+          elemBalasan.className = 'pesan-bot';
+          elemBalasan.innerHTML = balasan;
+          pesan.appendChild(elemBalasan);
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANTI ALL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .menu-premium {
+      text-align: center;
+    }
+    #form-kode {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #kode {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #tombol-kode {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #tombol-kode:hover {
+      background-color: #3e8e41;
+    }
+    .hasil {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="/img/profile.jpg" alt="Logo">
+    </div>
+    <div class="menu-premium">
+      <h2>A N T I - A L L</h2>
+      <form id="form-kode">
+        <input type="text" id="kode" placeholder="Masukkan Kode">
+        <button id="tombol-kode">CLICK</button>
+      </form>
+      <div class="hasil"></div>
+    </div>
+  </div>
+  <script>
+    const formKode = document.getElementById('form-kode');
+    const kodeInput = document.getElementById('kode');
+    const hasil = document.querySelector('.hasil');
+
+    formKode.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const kode = kodeInput.value.trim();
+
+      if (kode === '') {
+        hasil.innerHTML = 'Masukkan kode!';
+      } else if (kode === 'ANTIIKLAN44') {
+        hasil.innerHTML = 'HELLO ADMIN YOU CODE (ANTI-IKLAN)';
+        setTimeout(function() {
+          window.location.href = 'new.html';
+        }, 2000); // tunggu 2 detik sebelum mengarahkan
+      } else {
+        hasil.innerHTML = 'Kode salah! Silakan coba lagi.';
+      }
+    });
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peringatan Banned</title>
+  <style>
+    .peringatan {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f2f2f2;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="peringatan">
+    <h1>AKUN ANDA TELAH DIBANNED!</h1>
+    <p>Anda telah melanggar kebijakan kami.</p>
+  </div>
+  <script>
+    // Munculkan peringatan setelah 15 detik
+    setTimeout(function() {
+      document.querySelector('.peringatan').style.display = 'block';
+      setTimeout(function() {
+        window.location.href = 'banned.html'; // ganti dengan halaman tujuan
+      }, 3000); // tunggu 3 detik sebelum berpindah
+    }, 15000); // tunggu 15 detik sebelum munculkan peringatan
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifikasi Keren</title>
+  <style>
+    .notifikasi {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+      border-bottom: 1px solid #0056b3;
+      display: none;
+      animation-duration: 0.5s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .notifikasi.show {
+      display: block;
+      animation-name: fadeIn;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="notifikasi" id="notifikasi">
+    <span id="pesan-notifikasi"></span>
+  </div>
+  <script>
+    setTimeout(function() {
+      document.getElementById("notifikasi").classList.add("show");
+      document.getElementById("pesan-notifikasi").innerHTML = "AKUN ANDA TELAH DI PULIHKAN DEVELOPER";
+      setTimeout(function() {
+        window.location.href = 'berhasil.html';
+      }, 4000); // Jeda 3 detik
+    }, 2000); // Jeda 2 detik
+  </script>
+</body>
+</html>

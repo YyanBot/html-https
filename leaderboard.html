@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .leaderboard {
+      width: 300px;
+      margin: 40px auto;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .leaderboard h1 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      animation: neon 2s infinite;
+    }
+    
+    @keyframes neon {
+      0% {
+        color: #ff0000; /* Merah */
+      }
+      25% {
+        color: #ffff00; /* Kuning */
+      }
+      50% {
+        color: #00ff00; /* Hijau */
+      }
+      75% {
+        color: #0000ff; /* Biru */
+      }
+      100% {
+        color: #ff00ff; /* Ungu */
+      }
+    }
+    
+    #leaderboard-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #leaderboard-list li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    #leaderboard-list li:last-child {
+      border-bottom: none;
+    }
+    
+    #leaderboard-list li span {
+      display: block;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="leaderboard">
+    <h1>Leaderboard</h1>
+    <ul id="leaderboard-list"></ul>
+  </div>
+  <h2>GLOBAL ASEAN</h2>
+  <script>
+    // Data leaderboard
+    const leaderboardData = [
+      { nama: "BimRopa", skor: 1000 },
+      { nama: "AnakLc", skor: 800 },
+      { nama: "bima ", skor: 600 },
+      { nama: "rahel ", skor: 400 },
+      { nama: "juanCok", skor: 300},
+      { nama: "debin ", skor: 200 },
+    ];
+    
+    // Fungsi untuk mengupdate leaderboard
+    function updateLeaderboard() {
+      const leaderboardList = document.getElementById("leaderboard-list");
+      leaderboardList.innerHTML = "";
+      
+      // Urutkan data leaderboard berdasarkan skor
+      leaderboardData.sort((a, b) => b.skor - a.skor);
+      
+      // Tampilkan data leaderboard
+      leaderboardData.forEach((data, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${index + 1}. ${data.nama}</span>
+          <span>Skor: ${data.skor}</span>
+        `;
+        leaderboardList.appendChild(li);
+      });
+      
+      // Ubah skor secara acak setiap 5 detik
+      leaderboardData.forEach((data) => {
+        data.skor += Math.floor(Math.random() * 100) - 50;
+        if (data.skor < 0) data.skor = 0;
+      });
+    }
+    
+    // Panggil fungsi update leaderboard setiap 5 detik
+    setInterval(updateLeaderboard, 5000);
+    
+    // Panggil fungsi update leaderboard saat pertama kali
+    updateLeaderboard();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman 1</title>
+</head>
+<body>
+ 
+ <button onclick="kembali()">Kembali</button>
+ 
+ <script>
+  function kembali() {
+    window.location.href = 'berhasil.html'; // ganti dengan nama file tujuan
+  }
+ </script>
+ 
+</body>
+</html>

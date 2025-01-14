@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akun Terkena Banned</title>
+  <style>
+    body {
+      background-color: #ff0000; 
+      font-family: Arial, sans-serif;
+    }
+    
+    .banned {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: #ff3333; 
+      color: #fff;
+    }
+    
+    .banned h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .banned p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    
+    .banned input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      width: 200px;
+    }
+    
+    .banned button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .banned button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="banned">
+    <h1>Akun Anda Telah Dibanned!</h1>
+    <p>Anda telah melanggar kebijakan kami.</p>
+    <input type="text" id="kode" placeholder="Tinjau akun">
+    <button onclick="cekKode()">Submit</button>
+    <p id="pesan"></p>
+  </div>
+  <script>
+    function cekKode() {
+      var kode = document.getElementById("kode").value;
+      if (kode == "halo yan, saya tidak sengaja memencet pihak ketiga dari pelayanan apk ini, saya mohon balikan akun saya dan saya tidak akan mengulanginya lagi, terimakasih") {
+        document.getElementById("pesan").innerHTML = "Hello Your account has been verified. I noticed something odd with the third party. Sorry for the inconvenience. Please wait 25 seconds unbanned.";
+        setTimeout(function() {
+          window.location.href = 'tinjau.html';
+        }, 25000); // Jeda 3 detik
+      } else {
+        document.getElementById("pesan").innerHTML = "LOW STATION!";
+      }
+    }
+  </script>
+</body>
+</html>
